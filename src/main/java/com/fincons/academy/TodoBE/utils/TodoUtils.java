@@ -10,6 +10,7 @@ public class TodoUtils {
 	
 	public static TodoDto fromEntityToDto(Todo todo) {
 		TodoDto dto = new TodoDto();
+		dto.setId(todo.getId());
 		dto.setText(todo.getText());
 		dto.setState(todo.getState());
 		dto.setCreatedAt(todo.getCreatedAt());
