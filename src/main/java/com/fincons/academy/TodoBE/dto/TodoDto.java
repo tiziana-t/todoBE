@@ -7,6 +7,7 @@ public class TodoDto {
 	private String state;
 	private String createdAt;
 	private String dueTo;
+	
 	public Integer getId() {
 		return id;
 	}
