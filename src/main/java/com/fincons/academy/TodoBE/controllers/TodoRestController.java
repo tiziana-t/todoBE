@@ -10,7 +10,7 @@ import com.fincons.academy.TodoBE.dto.TodoDto;
 import com.fincons.academy.TodoBE.services.TodoService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("")
 public class TodoRestController {
 	
 	private TodoService todoService;
@@ -21,7 +21,7 @@ public class TodoRestController {
 	
 //**************GET***************
 	
-	@GetMapping()
+	@GetMapping("/getAll")
 	public List<TodoDto> getAllTodo(){
 		List<TodoDto> dto = todoService.getAllTodos();
 		return dto;
