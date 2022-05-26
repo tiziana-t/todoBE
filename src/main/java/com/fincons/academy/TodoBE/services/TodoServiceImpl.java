@@ -22,7 +22,9 @@ public class TodoServiceImpl implements TodoService{
 		this.todoRepo = todoRepository;
 	}
 	
-	//*************GET**************
+	
+	
+	//*************GET*************
 	
 	//GET all
 	@Override
@@ -33,6 +35,49 @@ public class TodoServiceImpl implements TodoService{
 		todos.stream().forEach(t->dto.add(TodoUtils.fromEntityToDto(t)));
 		return dto;
 		
+	}
+	
+	
+	//*************POST*************
+	
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	public Integer creadeNewTodo(TodoDto todoDto) {
+		Todo todo = new Todo();
+		todo = TodoUtils.fromDtoToEntity(todoDto);
+		Todo t = todoRepo.save(todo); //perchè qui non creo una nuova istanza o lo sta facendo lui
+		return t.getId();
+	}
+	
+	//*************PUT*************
+	
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	public TodoDto updateTodo(Integer idTodo, TodoDto dto) {
+		todoRepo.delete(todoRepo.getById(idTodo));
+		Todo todo = new Todo();
+		todo.setText(dto.getText());
+		todo.setState(dto.getState());
+		todo.setCreatedAt(dto.getCreatedAt());
+		todo.setDueTo(dto.getDueTo());
+		todoRepo.saveAndFlush(todo);
+		
+		TodoDto dtoToReturn = new TodoDto();
+		dtoToReturn.setId(todo.getId());
+		dtoToReturn.setText(todo.getText());
+		dtoToReturn.setState(todo.getState());
+		dtoToReturn.setCreatedAt(todo.getCreatedAt());
+		dtoToReturn.setDueTo(todo.getDueTo());
+		
+		return dtoToReturn;
+	}
+	
+	//*************DELETE*************
+	
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	public void deleteTdo(Integer idTodo) {
+		todoRepo.delete(todoRepo.getById(idTodo));
 	}
 
 }

@@ -17,5 +17,16 @@ public class TodoUtils {
 		return dto;
 		
 	}
+	
+	public static Todo fromDtoToEntity (TodoDto dto) {
+		Todo todo = new Todo();
+		todo.setId(dto.getId());
+		todo.setText(dto.getText());
+		todo.setState(dto.getState());
+		todo.setCreatedAt(dto.getCreatedAt());
+		todo.setDueTo(dto.getDueTo());
+		
+		return todo;
+	}
 
 }
