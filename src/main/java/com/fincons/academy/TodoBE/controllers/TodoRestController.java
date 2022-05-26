@@ -34,7 +34,7 @@ public class TodoRestController {
 	
 //**************POST**************
 	
-	@PostMapping
+	@PostMapping("/creaNuovo")
 	public Integer create(@RequestBody TodoDto dto) {
 		Integer key = todoService.creadeNewTodo(dto);
 		return key;
@@ -42,7 +42,7 @@ public class TodoRestController {
 	
 //**************PUT**************
 	
-	@PutMapping("/{id}")
+	@PutMapping("/getAll/{id}")
 	public TodoDto update(@PathVariable("id") Integer id, @RequestBody TodoDto dto) {
 		return todoService.updateTodo(id, dto);
 	}
@@ -50,7 +50,7 @@ public class TodoRestController {
 	
 //**************DELETE**************
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/getAll/{id}")
 	public void delete(@PathVariable("id") Integer id) {
 		todoService.deleteTdo(id);
 	}
