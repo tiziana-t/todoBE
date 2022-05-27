@@ -1,12 +1,14 @@
 package com.fincons.academy.TodoBE.dto;
 
+import java.sql.Date;
+
 public class TodoDto {
 	
 	private Integer id;
 	private String text;
 	private String state;
-	private String createdAt;
-	private String dueTo;
+	private Date createdAt;
+	private Date dueTo;
 	
 	public Integer getId() {
 		return id;
@@ -26,16 +28,16 @@ public class TodoDto {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public String getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(String createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-	public String getDueTo() {
+	public Date getDueTo() {
 		return dueTo;
 	}
-	public void setDueTo(String dueTo) {
+	public void setDueTo(Date dueTo) {
 		this.dueTo = dueTo;
 	}
 	

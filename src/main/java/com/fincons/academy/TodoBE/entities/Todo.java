@@ -1,6 +1,7 @@
 package com.fincons.academy.TodoBE.entities;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,10 +28,10 @@ public class Todo implements Serializable{
 	private String state;
 	
 	@Column(name = "createdat")
-	private String createdAt;
+	private Date createdAt;
 	
 	@Column(name = "dueto")
-	private String dueTo;
+	private Date dueTo;
 
 	public Integer getId() {
 		return id;
@@ -56,19 +57,19 @@ public class Todo implements Serializable{
 		this.state = state;
 	}
 
-	public String getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(String createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public String getDueTo() {
+	public Date getDueTo() {
 		return dueTo;
 	}
 
-	public void setDueTo(String dueTo) {
+	public void setDueTo(Date dueTo) {
 		this.dueTo = dueTo;
 	}
 	
