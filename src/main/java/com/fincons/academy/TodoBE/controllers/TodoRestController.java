@@ -42,7 +42,7 @@ public class TodoRestController {
 	
 //**************PUT**************
 	
-	@PutMapping("/getAll/{id}")
+	@PutMapping("/modifica/{id}")
 	public TodoDto update(@PathVariable("id") Integer id, @RequestBody TodoDto dto) {
 		return todoService.updateTodo(id, dto);
 	}
