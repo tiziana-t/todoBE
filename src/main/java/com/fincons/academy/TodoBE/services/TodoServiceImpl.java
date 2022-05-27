@@ -37,6 +37,16 @@ public class TodoServiceImpl implements TodoService{
 		
 	}
 	
+	//GET by keyword
+	@Override
+	@Transactional(propagation = Propagation.NEVER, readOnly = true)
+	public List<TodoDto> getByKeyword(String keyword){
+		List<TodoDto> dto = new ArrayList<TodoDto>();
+		List<Todo> todos = todoRepo.findByKeyword(keyword);
+		todos.stream().forEach(t->dto.add(TodoUtils.fromEntityToDto(t)));
+		return dto;
+	}
+	
 	
 	//*************POST*************
 	
