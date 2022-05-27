@@ -32,7 +32,7 @@ public class TodoRestController {
 		return dto;
 	}
 	
-	@GetMapping("/cercaMemo/{keyword}")
+	@GetMapping("/memoTrovati/{keyword}")
 	public List<TodoDto> getByKeyword(@PathVariable("keyword") String key){
 		List<TodoDto> dto = todoService.getByKeyword(key);
 		return dto;
