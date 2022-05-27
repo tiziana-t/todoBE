@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//Il bean Value Object contenitore dei dati in arrivo dal DB
+//Rappresenta un oggetto memo
+
 @Entity
 @Table(name = "todo")
 public class Todo implements Serializable{
