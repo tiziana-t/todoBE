@@ -32,15 +32,15 @@ public class TodoRestController {
 		return dto;
 	}
 	
-	@GetMapping("/cercaMemo")
-	public List<TodoDto> getByKeyword(String keyword){
-		List<TodoDto> dto = todoService.getByKeyword(keyword);
+	@GetMapping("/cercaMemo/{keyword}")
+	public List<TodoDto> getByKeyword(@PathVariable("keyword") String key){
+		List<TodoDto> dto = todoService.getByKeyword(key);
 		return dto;
 	}
 	
 //**************POST**************
 	
-	@PostMapping("/creaNuovo/{keyword}")
+	@PostMapping("/creaNuovo")
 	public Integer create(@RequestBody TodoDto dto) {
 		Integer key = todoService.creadeNewTodo(dto);
 		return key;

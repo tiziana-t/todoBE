@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 @Repository
 public interface TodoRepository extends JpaRepository<Todo, Integer>  {
 
-	@Query("select t from Todo t where t.text LIKE %:keyword%")
+	@Query("select t from Todo t where t.text like %:keyword%")
 	List<Todo> findByKeyword(@Param("keyword") String text);
 	
 	List<Todo> findAll();
