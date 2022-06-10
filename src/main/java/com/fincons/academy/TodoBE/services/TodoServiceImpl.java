@@ -64,8 +64,9 @@ public class TodoServiceImpl implements TodoService{
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public TodoDto updateTodo(Integer idTodo, TodoDto dto) {
-		todoRepo.delete(todoRepo.getById(idTodo));
+		//todoRepo.delete(todoRepo.getById(idTodo));
 		Todo todo = new Todo();
+		todo.setId(idTodo);
 		todo.setText(dto.getText());
 		todo.setState(dto.getState());
 		todo.setCreatedAt(dto.getCreatedAt());
