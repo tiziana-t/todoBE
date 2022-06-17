@@ -15,7 +15,7 @@ import com.fincons.academy.TodoBE.dto.TodoDto;
 import com.fincons.academy.TodoBE.services.TodoService;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("todo")
 public class TodoRestController {
 	
 	private TodoService todoService;
@@ -26,13 +26,13 @@ public class TodoRestController {
 	
 //**************GET**************
 	
-	@GetMapping("/getAll")
+	@GetMapping("")
 	public List<TodoDto> getAllTodo(){
 		List<TodoDto> dto = todoService.getAllTodos();
 		return dto;
 	}
 	
-	@GetMapping("/memoTrovati/{keyword}")
+	@GetMapping("{keyword}")
 	public List<TodoDto> getByKeyword(@PathVariable("keyword") String key){
 		List<TodoDto> dto = todoService.getByKeyword(key);
 		return dto;
@@ -40,7 +40,7 @@ public class TodoRestController {
 	
 //**************POST**************
 	
-	@PostMapping("/creaNuovo")
+	@PostMapping("")
 	public Integer create(@RequestBody TodoDto dto) {
 		Integer key = todoService.creadeNewTodo(dto);
 		return key;
@@ -48,7 +48,7 @@ public class TodoRestController {
 	
 //**************PUT**************
 	
-	@PutMapping("/modifica/{id}")
+	@PutMapping("{id}")
 	public TodoDto update(@PathVariable("id") Integer id, @RequestBody TodoDto dto) {
 		return todoService.updateTodo(id, dto);
 	}
@@ -56,7 +56,7 @@ public class TodoRestController {
 	
 //**************DELETE**************
 	
-	@DeleteMapping("/getAll/{id}")
+	@DeleteMapping("{id}")
 	public void delete(@PathVariable("id") Integer id) {
 		todoService.deleteTdo(id);
 	}
