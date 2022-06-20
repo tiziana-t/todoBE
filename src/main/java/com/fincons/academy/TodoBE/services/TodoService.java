@@ -9,7 +9,7 @@ public interface TodoService {
 
 	List<TodoDto> getAllTodos();
 
-	Integer creadeNewTodo(TodoDto todoDto);
+	Integer createNewTodo(TodoDto todoDto);
 
 	void deleteTdo(Integer idTodo);
 

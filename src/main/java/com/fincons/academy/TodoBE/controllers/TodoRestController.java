@@ -42,7 +42,7 @@ public class TodoRestController {
 	
 	@PostMapping("")
 	public Integer create(@RequestBody TodoDto dto) {
-		Integer key = todoService.creadeNewTodo(dto);
+		Integer key = todoService.createNewTodo(dto);
 		return key;
 	}
 	
